@@ -1,12 +1,14 @@
 package com.example.validation.dto;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Pattern;
 
 public class User {
 
     private String name;
 
+    @Max(value = 90)
     private int age;
 
     @Email
