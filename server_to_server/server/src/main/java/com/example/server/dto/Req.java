@@ -1,4 +1,4 @@
-package com.example.client.dto;
+package com.example.server.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +16,7 @@ public class Req<T> {
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class Header {
-        private String responseCode;
+    public static class Header{
+        private String responseCOde;
     }
 }
