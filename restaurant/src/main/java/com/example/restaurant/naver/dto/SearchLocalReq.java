@@ -17,7 +17,7 @@ public class SearchLocalReq {
 
     private int start = 1;
 
-    private String sort = "sim";
+//    private String sort = "random";
 
     public MultiValueMap<String, String> toMultiValueMap() {
         var map = new LinkedMultiValueMap<String, String>();
@@ -25,7 +25,7 @@ public class SearchLocalReq {
         map.add("query", query);
         map.add("display", String.valueOf(display));
         map.add("start", String.valueOf(start));
-        map.add("sort", sort);
+//        map.add("sort", sort);
 
         return map;
     }

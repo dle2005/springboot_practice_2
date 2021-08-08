@@ -1,6 +1,6 @@
 package com.example.restaurant.naver;
 
-import com.example.restaurant.naver.dto.SearchImagelReq;
+import com.example.restaurant.naver.dto.SearchImageReq;
 import com.example.restaurant.naver.dto.SearchLocalReq;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ class NaverClientTest {
 
     @Test
     public void searchImageTest() {
-        var search = new SearchImagelReq();
+        var search = new SearchImageReq();
         search.setQuery("갈비집");
 
         var result = naverClient.searchImage(search);

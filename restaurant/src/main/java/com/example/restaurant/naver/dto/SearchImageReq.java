@@ -9,7 +9,7 @@ import org.springframework.util.MultiValueMap;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SearchImagelReq {
+public class SearchImageReq {
 
     private String query = "";
 

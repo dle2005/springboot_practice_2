@@ -1,6 +1,6 @@
 package com.example.restaurant.naver;
 
-import com.example.restaurant.naver.dto.SearchImagelReq;
+import com.example.restaurant.naver.dto.SearchImageReq;
 import com.example.restaurant.naver.dto.SearchImageRes;
 import com.example.restaurant.naver.dto.SearchLocalReq;
 import com.example.restaurant.naver.dto.SearchLocalRes;
@@ -54,7 +54,7 @@ public class NaverClient {
         return responseEntity.getBody();
     }
 
-    public SearchImageRes searchImage(SearchImagelReq searchImagelReq) {
+    public SearchImageRes searchImage(SearchImageReq searchImagelReq) {
         var uri = UriComponentsBuilder.fromUriString(naverImageSearchUrl)
                 .queryParams(searchImagelReq.toMultiValueMap())
                 .build()
