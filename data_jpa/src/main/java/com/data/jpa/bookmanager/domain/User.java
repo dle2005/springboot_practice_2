@@ -5,6 +5,9 @@ import com.data.jpa.bookmanager.domain.listener.Auditable;
 import com.data.jpa.bookmanager.domain.listener.AuditableListener;
 import com.data.jpa.bookmanager.domain.listener.UserEntityListener;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -15,7 +18,7 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 @Entity
-@EntityListeners(value = {AuditableListener.class, UserEntityListener.class})
+@EntityListeners(value = {AuditingEntityListener.class, UserEntityListener.class})
 //@Table(name = "user", indexes = { @Index(columnList = "name")}, uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
 public class User implements Auditable {
 
@@ -33,8 +36,10 @@ public class User implements Auditable {
     private Gender gender;
 
     @Column(updatable = false)
+    @CreatedDate
     private LocalDateTime createdAt;
 
+    @LastModifiedDate
     private LocalDateTime updatedAt;
 
 //    @PrePersist // persist(insert) method 호출 전
