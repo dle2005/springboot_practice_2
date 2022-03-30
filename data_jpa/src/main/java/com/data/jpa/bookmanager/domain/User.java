@@ -3,6 +3,7 @@ package com.data.jpa.bookmanager.domain;
 import com.data.jpa.bookmanager.domain.enumtype.Gender;
 import com.data.jpa.bookmanager.domain.listener.Auditable;
 import com.data.jpa.bookmanager.domain.listener.AuditableListener;
+import com.data.jpa.bookmanager.domain.listener.UserEntityListener;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 @Entity
-@EntityListeners(value = AuditableListener.class)
+@EntityListeners(value = {AuditableListener.class, UserEntityListener.class})
 //@Table(name = "user", indexes = { @Index(columnList = "name")}, uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
 public class User implements Auditable {
 
