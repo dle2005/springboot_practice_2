@@ -1,23 +1,22 @@
 package com.data.jpa.bookmanager.domain;
 
 import com.data.jpa.bookmanager.domain.listener.Auditable;
-import com.data.jpa.bookmanager.domain.listener.AuditableListener;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@RequiredArgsConstructor
+@Builder
+
+@Setter
+@Getter
 
 @Entity
-@NoArgsConstructor
-@Data
-@Builder
-@EntityListeners(value = AuditableListener.class)
-public class UserHistory implements Auditable {
+public class UserHistory extends BaseEntity implements Auditable {
 
     @Id
     @GeneratedValue
@@ -28,8 +27,4 @@ public class UserHistory implements Auditable {
     private String name;
 
     private String email;
-
-    private LocalDateTime createdAt;
-
-    private LocalDateTime updatedAt;
 }

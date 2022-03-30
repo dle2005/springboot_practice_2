@@ -1,20 +1,22 @@
 package com.data.jpa.bookmanager.domain;
 
 import com.data.jpa.bookmanager.domain.listener.Auditable;
-import com.data.jpa.bookmanager.domain.listener.AuditableListener;
 import lombok.*;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
-@Data
 @Builder
+
+@Setter
+@Getter
+
 @Entity
-@EntityListeners(value = AuditableListener.class)
-public class Book implements Auditable {
+public class Book extends BaseEntity implements Auditable {
 
     @Id
     @GeneratedValue
@@ -23,9 +25,4 @@ public class Book implements Auditable {
     private String name;
 
     private String author;
-
-    @Column(updatable = false)
-    private LocalDateTime createdAt;
-
-    private LocalDateTime updatedAt;
 }
