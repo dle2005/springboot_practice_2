@@ -1,18 +1,16 @@
 package com.data.jpa.bookmanager.domain;
 
 import com.data.jpa.bookmanager.domain.base.BaseEntity;
-import lombok.*;
+import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
-@NoArgsConstructor
-@AllArgsConstructor
-
-@Setter
 @Getter
 
 @Entity
-public class UserHistory extends BaseEntity {
+public class Publisher extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +18,7 @@ public class UserHistory extends BaseEntity {
 
     private String name;
 
-    private String email;
-
-    @ManyToOne
-    private User user;
+    @OneToMany
+    @JoinColumn(name = "publisher_id")
+    private List<Book> books = new ArrayList<>();
 }

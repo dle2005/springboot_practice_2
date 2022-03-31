@@ -1,27 +1,29 @@
 package com.data.jpa.bookmanager.domain;
 
+
 import com.data.jpa.bookmanager.domain.base.BaseEntity;
-import lombok.*;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@NoArgsConstructor
-@AllArgsConstructor
-
 @Setter
-@Getter
 
 @Entity
-public class UserHistory extends BaseEntity {
+public class Review extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String title;
 
-    private String email;
+    private String content;
+
+    private float score;
 
     @ManyToOne
     private User user;
+
+    @ManyToOne
+    private Book book;
 }

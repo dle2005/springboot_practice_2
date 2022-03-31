@@ -1,5 +1,6 @@
-package com.data.jpa.bookmanager.domain;
+package com.data.jpa.bookmanager.domain.base;
 
+import com.data.jpa.bookmanager.domain.listener.Auditable;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 @EntityListeners(value = AuditingEntityListener.class)
-public class BaseEntity {
+public class BaseEntity implements Auditable {
 
     @Column(updatable = false)
     @CreatedDate
