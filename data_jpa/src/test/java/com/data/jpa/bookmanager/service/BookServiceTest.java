@@ -2,6 +2,7 @@ package com.data.jpa.bookmanager.service;
 
 import com.data.jpa.bookmanager.domain.Book;
 import com.data.jpa.bookmanager.domain.Publisher;
+import com.data.jpa.bookmanager.domain.dto.BookStatus;
 import com.data.jpa.bookmanager.repository.AuthorRepository;
 import com.data.jpa.bookmanager.repository.BookRepository;
 import com.data.jpa.bookmanager.repository.PublisherRepository;
@@ -76,5 +77,16 @@ class BookServiceTest {
 
         System.out.println(bookRepository.findAll());
         System.out.println(publisherRepository.findAll());
+    }
+
+    @Test
+    void converterTest() {
+        Book book = new Book();
+        book.setName("book");
+        book.setStatus(new BookStatus(200));
+
+        bookRepository.save(book);
+
+        System.out.println(bookRepository.findRawRecord().values());
     }
 }

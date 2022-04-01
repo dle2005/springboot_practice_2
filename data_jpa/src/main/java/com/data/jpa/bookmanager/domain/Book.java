@@ -1,8 +1,11 @@
 package com.data.jpa.bookmanager.domain;
 
 import com.data.jpa.bookmanager.domain.base.BaseEntity;
+import com.data.jpa.bookmanager.domain.converter.BookStatusConverter;
+import com.data.jpa.bookmanager.domain.dto.BookStatus;
 import com.data.jpa.bookmanager.domain.listener.Auditable;
 import lombok.*;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -17,6 +20,8 @@ import java.util.List;
 @Getter
 
 @ToString
+
+@Where(clause = "deleted = false")
 
 @Entity
 public class Book extends BaseEntity {
@@ -46,6 +51,11 @@ public class Book extends BaseEntity {
     @ManyToMany
     @ToString.Exclude
     private List<Author> authors = new ArrayList<>();
+
+    private boolean deleted;
+
+    @Convert(converter = BookStatusConverter.class)
+    private BookStatus status;
 
     public void addAuthor(Author author) {
         this.authors.add(author);
