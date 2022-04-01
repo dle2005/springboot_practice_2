@@ -1,6 +1,7 @@
 package com.data.jpa.bookmanager.domain;
 
 import com.data.jpa.bookmanager.domain.base.BaseEntity;
+import com.data.jpa.bookmanager.domain.embedded.Address;
 import lombok.*;
 
 import javax.persistence.*;
@@ -27,4 +28,7 @@ public class UserHistory extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @ToString.Exclude
     private User user;
+
+    @Embedded
+    private Address address;
 }
