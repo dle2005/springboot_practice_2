@@ -2,6 +2,8 @@ package com.data.jpa.bookmanager.domain;
 
 import com.data.jpa.bookmanager.domain.base.BaseEntity;
 import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Getter
+@Setter
 
 @Entity
 public class Author extends BaseEntity {

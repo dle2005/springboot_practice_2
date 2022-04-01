@@ -29,14 +29,14 @@ public class Book extends BaseEntity {
 
     private Long authorId;
 
-    @OneToOne(mappedBy = "book")
+    @OneToOne(mappedBy = "book", fetch = FetchType.LAZY)
     private BookReviewInfo bookReviewInfo;
 
     @OneToMany
     @JoinColumn(name = "book_id")
     private List<Review> reviews = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Publisher publisher;
 
     @ManyToMany

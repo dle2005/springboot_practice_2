@@ -22,6 +22,6 @@ public class UserHistory extends BaseEntity {
 
     private String email;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 }

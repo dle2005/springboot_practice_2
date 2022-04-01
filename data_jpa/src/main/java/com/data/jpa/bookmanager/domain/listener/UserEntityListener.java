@@ -21,11 +21,10 @@ public class UserEntityListener {
 
         User user = (User) o;
 
-        UserHistory userHistory = UserHistory.builder()
-                .name(user.getName())
-                .email(user.getEmail())
-                .user(user)
-                .build();
+        UserHistory userHistory = new UserHistory();
+        userHistory.setName(user.getName());
+        userHistory.setEmail(user.getEmail());
+        userHistory.setUser(user);
 
         userHistoryRepository.save(userHistory);
     }

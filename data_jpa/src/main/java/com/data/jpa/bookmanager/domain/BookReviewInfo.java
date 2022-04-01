@@ -16,7 +16,7 @@ public class BookReviewInfo extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(optional = false)
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
     private Book book;
 
     private float averageReviewScore;
