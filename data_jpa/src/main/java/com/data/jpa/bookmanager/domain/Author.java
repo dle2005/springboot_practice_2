@@ -13,6 +13,8 @@ import java.util.List;
 @Getter
 @Setter
 
+@ToString
+
 @Entity
 public class Author extends BaseEntity {
 
@@ -25,6 +27,7 @@ public class Author extends BaseEntity {
     private String country;
 
     @ManyToMany
+    @ToString.Exclude
     private List<Book> books = new ArrayList<>();
 
     public void addBook(Book book) {

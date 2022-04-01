@@ -11,6 +11,8 @@ import javax.persistence.*;
 @Setter
 @Getter
 
+@ToString
+
 @Entity
 public class UserHistory extends BaseEntity {
 
@@ -23,5 +25,6 @@ public class UserHistory extends BaseEntity {
     private String email;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
     private User user;
 }

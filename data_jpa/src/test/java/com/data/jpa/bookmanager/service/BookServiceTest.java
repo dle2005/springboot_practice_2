@@ -1,8 +1,10 @@
 package com.data.jpa.bookmanager.service;
 
 import com.data.jpa.bookmanager.domain.Book;
+import com.data.jpa.bookmanager.domain.Publisher;
 import com.data.jpa.bookmanager.repository.AuthorRepository;
 import com.data.jpa.bookmanager.repository.BookRepository;
+import com.data.jpa.bookmanager.repository.PublisherRepository;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ class BookServiceTest {
     @Autowired private BookRepository bookRepository;
     @Autowired private AuthorRepository authorRepository;
     @Autowired private AuthorService authorService;
+    @Autowired private PublisherRepository publisherRepository;
 
     @Test
     public void transactionTest() {
@@ -40,5 +43,38 @@ class BookServiceTest {
         bookService.get(1L);
 
         System.out.println(bookRepository.findAll());
+    }
+
+    @Test
+    void cascadeTest() {
+        Book book = new Book();
+        book.setName("book");
+
+//        bookRepository.save(book);
+
+        Publisher publisher = new Publisher();
+        publisher.setName("publisher");
+        publisher.addBook(book);
+
+        publisherRepository.save(publisher);
+
+//        book.setPublisher(publisher);
+//        bookRepository.save(book);
+
+//        publisher.addBook(book);
+//        publisherRepository.save(publisher);
+
+        System.out.println(bookRepository.findAll());
+        System.out.println(publisherRepository.findAll());
+
+        publisher.setName("publisher_changed");
+        publisherRepository.save(publisher);
+
+        System.out.println(publisherRepository.findAll());
+
+        bookRepository.delete(book);
+
+        System.out.println(bookRepository.findAll());
+        System.out.println(publisherRepository.findAll());
     }
 }

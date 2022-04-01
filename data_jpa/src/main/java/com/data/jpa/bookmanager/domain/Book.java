@@ -16,6 +16,8 @@ import java.util.List;
 @Setter
 @Getter
 
+@ToString
+
 @Entity
 public class Book extends BaseEntity {
 
@@ -34,12 +36,15 @@ public class Book extends BaseEntity {
 
     @OneToMany
     @JoinColumn(name = "book_id")
+    @ToString.Exclude
     private List<Review> reviews = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
     private Publisher publisher;
 
     @ManyToMany
+    @ToString.Exclude
     private List<Author> authors = new ArrayList<>();
 
     public void addAuthor(Author author) {

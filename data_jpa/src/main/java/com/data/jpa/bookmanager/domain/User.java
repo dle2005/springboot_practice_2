@@ -17,6 +17,8 @@ import java.util.List;
 @Setter
 @Getter
 
+@ToString
+
 @Entity
 @EntityListeners(value = UserEntityListener.class)
 //@Table(name = "user", indexes = { @Index(columnList = "name")}, uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
@@ -37,9 +39,11 @@ public class User extends BaseEntity {
 
     @OneToMany
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    @ToString.Exclude
     private List<UserHistory> userHistories = new ArrayList<>();
 
     @OneToMany
     @JoinColumn(name = "user_id")
+    @ToString.Exclude
     private List<Review> reviews = new ArrayList<>();
 }
