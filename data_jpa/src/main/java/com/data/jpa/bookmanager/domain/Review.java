@@ -7,6 +7,9 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Getter
 @Setter
@@ -33,4 +36,19 @@ public class Review extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @ToString.Exclude
     private Book book;
+
+    @OneToMany
+    @JoinColumn(name = "review_id")
+    private List<Comment> comments = new ArrayList<>();
+
+    public void addComment(Comment comment) {
+        this.comments.add(comment);
+        comment.setReview(this);
+    }
+
+    public void addComment(Comment... comments) {
+        for (Comment comment : comments) {
+            addComment(comment);
+        }
+    }
 }
