@@ -10,6 +10,8 @@
         <module name="security.server-basic-test.test" />
         <module name="security.server-login-basic.test" />
         <module name="security.server-basic-test.main" />
+        <module name="security.server-login-custom-filter.test" />
+        <module name="security.server-login-custom-filter.main" />
         <module name="security.server-login-basic.main" />
       </profile>
     </annotationProcessing>
