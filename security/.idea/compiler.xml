@@ -9,10 +9,12 @@
         </processorPath>
         <module name="security.server-basic-test.test" />
         <module name="security.server-login-basic.test" />
+        <module name="security.server-basic-authentication-test.test" />
+        <module name="security.server-basic-authentication-test.main" />
+        <module name="security.server-login-basic.main" />
         <module name="security.server-basic-test.main" />
         <module name="security.server-login-custom-filter.test" />
         <module name="security.server-login-custom-filter.main" />
-        <module name="security.server-login-basic.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="15" />

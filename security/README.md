@@ -22,3 +22,9 @@ config 에서 유저 생성시 yml 의 유저는 더이상 동작하지 않는�
 #### 관리자 권한
 권리자는 일반적으로 유저의 접근 권한을 포함해야 한다.
 RoleHierarchy bean 을 만들어 관리자 > 유저 설정.
+
+#### SPA 페이지 (react, angular, vue ...)
+기본적으로 로그인 페이지를 사용할 수 엇는 상황에서 사용.  
+Config 의 configure(HttpSecurity http) 에서 http.httpBasic() 으로 enable 시켜줘야함
+최초 로그인시에만 인증을 처리, 이후에는 session 에 의존. 또 RememberMe 를 설정한 경우,
+remember-me 쿠키가 브라우저에 저장되기 때문에 세션이 만료된 이후라도브라우저 기반의 앱에서는 장시간 서비스를 로그인 페이지를 거치지 않고 이용.
